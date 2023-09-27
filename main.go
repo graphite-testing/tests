@@ -32,7 +32,7 @@ func createUser(db *surrealdb.DB, user User) {
 	fmt.Println(res)
 }
 
-func getUsers(db *surrealdb.DB) {
+func _getUsers(db *surrealdb.DB) {
 	res, err := db.Query("SELECT * FROM users;", nil)
 	if err != nil {
 		panic(err)
