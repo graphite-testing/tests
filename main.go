@@ -15,14 +15,15 @@ type User struct {
 func main() {
 	db := connect()
 
-	createUser(db)
-}
-
-func createUser(db *surrealdb.DB) {
-	res, err := db.Create("users:bob", User{
+	user := User{
 		Name: "Bob",
 		Bff:  "users:jocke",
-	})
+	}
+	createUser(db, user)
+}
+
+func createUser(db *surrealdb.DB, user User) {
+	res, err := db.Create("users:bob", user)
 
 	if err != nil {
 		panic(err)
