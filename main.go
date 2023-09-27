@@ -20,6 +20,7 @@ func main() {
 		Bff:  "users:jocke",
 	}
 	createUser(db, user)
+	_getUsers(db)
 }
 
 func createUser(db *surrealdb.DB, user User) {
