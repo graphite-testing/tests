@@ -20,7 +20,11 @@ type Car struct {
 func main() {
 	db := connect()
 
-	CreateUser(db)
+	user := User{
+		Name: "Bob",
+	}
+
+	CreateUser(db, "users:bob", user)
 	GetUsers(db)
 	CreateCar(db, "cars:volvo", Car{
 		Owner: "users:bob",

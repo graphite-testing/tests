@@ -6,11 +6,8 @@ import (
 	"github.com/surrealdb/surrealdb.go"
 )
 
-func CreateUser(db *surrealdb.DB) {
-	res, err := db.Create("users:bob", User{
-		Name: "Bob",
-		Bff:  "users:jocke",
-	})
+func CreateUser(db *surrealdb.DB, id string, user User) {
+	res, err := db.Create(id, user)
 
 	if err != nil {
 		panic(err)
