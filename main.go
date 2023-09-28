@@ -10,12 +10,23 @@ type User struct {
 	Bff  string `json:"bff"`
 }
 
+type Car struct {
+	Id    string `json:"id,omitempty"`
+	Owner string `json:"owner"`
+	Brand string `json:"brand"`
+	Model string `json:"model"`
+}
+
 func main() {
 	db := connect()
 
 	CreateUser(db)
 	GetUsers(db)
-	DeleteUser(db)
+	CreateCar(db, "cars:volvo", Car{
+		Owner: "users:bob",
+		Brand: "Volvo",
+		Model: "V70",
+	})
 }
 
 func connect() *surrealdb.DB {
