@@ -16,8 +16,8 @@ func CreateUser(db *surrealdb.DB, id string, user User) {
 	fmt.Println(res)
 }
 
-func DeleteUser(db *surrealdb.DB) {
-	res, err := db.Delete("users:bob")
+func DeleteUser(db *surrealdb.DB, id string) {
+	res, err := db.Delete(id)
 	if err != nil {
 		panic(err)
 	}

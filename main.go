@@ -31,6 +31,7 @@ func main() {
 		Brand: "Volvo",
 		Model: "V70",
 	})
+	DeleteUser(db, "users:bob")
 }
 
 func connect() *surrealdb.DB {
