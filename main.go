@@ -16,6 +16,7 @@ func main() {
 	db := connect()
 
 	createUser(db)
+	getUsers(db)
 }
 
 func createUser(db *surrealdb.DB) {
