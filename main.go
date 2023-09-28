@@ -17,6 +17,7 @@ func main() {
 
 	createUser(db)
 	getUsers(db)
+	deleteUser(db)
 }
 
 func createUser(db *surrealdb.DB) {
@@ -25,6 +26,15 @@ func createUser(db *surrealdb.DB) {
 		Bff:  "users:jocke",
 	})
 
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(res)
+}
+
+func deleteUser(db *surrealdb.DB) {
+	res, err := db.Delete("users:bob")
 	if err != nil {
 		panic(err)
 	}
