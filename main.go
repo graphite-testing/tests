@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/surrealdb/surrealdb.go"
 )
 
@@ -15,40 +13,9 @@ type User struct {
 func main() {
 	db := connect()
 
-	createUser(db)
-	getUsers(db)
-	deleteUser(db)
-}
-
-func createUser(db *surrealdb.DB) {
-	res, err := db.Create("users:bob", User{
-		Name: "Bob",
-		Bff:  "users:jocke",
-	})
-
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Println(res)
-}
-
-func deleteUser(db *surrealdb.DB) {
-	res, err := db.Delete("users:bob")
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Println(res)
-}
-
-func getUsers(db *surrealdb.DB) {
-	res, err := db.Query("SELECT * FROM users;", nil)
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Println(res)
+	CreateUser(db)
+	GetUsers(db)
+	DeleteUser(db)
 }
 
 func connect() *surrealdb.DB {
