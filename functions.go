@@ -42,3 +42,12 @@ func CreateCar(db *surrealdb.DB, id string, car Car) {
 
 	fmt.Println(res)
 }
+
+func DeleteCar(db *surrealdb.DB, id string) {
+	res, err := db.Delete(id)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(res)
+}
