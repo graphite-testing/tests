@@ -34,6 +34,15 @@ func GetUsers(db *surrealdb.DB) {
 	fmt.Println(res)
 }
 
+func getCars(db *surrealdb.DB) {
+	res, err := db.Query("SELECT * FROM cars;", nil)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(res)
+}
+
 func CreateCar(db *surrealdb.DB, id string, car Car) {
 	res, err := db.Create(id, car)
 	if err != nil {
